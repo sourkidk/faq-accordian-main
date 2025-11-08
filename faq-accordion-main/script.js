@@ -1,0 +1,21 @@
+const faq_container = document.querySelector('.faq-container');
+
+faq_container.addEventListener('click', function(e){
+    const clickedElement = e.target;
+    const question = clickedElement.closest('.question');
+
+    if (!question) return;
+    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+    question.setAttribute('aria-expanded', !isExpanded);
+
+
+
+    const answer = question.nextElementSibling;
+    answer.classList.toggle('visible');
+
+    const icon = question.querySelector('.plus-collapsed');
+    icon.src = !isExpanded
+    ? "./assets/images/icon-minus.svg"
+    : "./assets/images/icon-plus.svg";
+
+});

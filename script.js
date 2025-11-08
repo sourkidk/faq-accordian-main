@@ -6,7 +6,7 @@ faq_container.addEventListener('click', function(e){
 
     if (!question) return;
     const isExpanded = question.getAttribute('aria-expanded') === 'true';
-    question.setAttribute('aria-expanded', !isExpanded);
+    question.setAttribute('aria-expanded', String(!isExpanded));
 
 
 

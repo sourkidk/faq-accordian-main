@@ -11,11 +11,16 @@ faq_container.addEventListener('click', function(e){
 
 
     const answer = question.nextElementSibling;
-    answer.classList.toggle('visible');
+
+    if (answer) answer.classList.toggle('visible');
 
     const icon = question.querySelector('.plus-collapsed');
-    icon.src = !isExpanded
-    ? "./assets/images/icon-minus.svg"
-    : "./assets/images/icon-plus.svg";
+    if (icon) {
+        icon.src = !isExpanded
+            ? "./assets/images/icon-minus.svg"
+            : "./assets/images/icon-plus.svg";
+    } else {
+        console.warn('Icon element not found, skipping src update');
+    }
 
 });
